@@ -1,0 +1,17 @@
+//Java streams
+
+1) Java Program to Find the First Non-repeated Character in a String
+ Using groupingBy
+-----------------
+       List<String> strings = Arrays.asList("a", "a", "b", "b", "b", "c", "d", "c", "d", "a", "a");
+
+       Map<String, Long> stringCounts = strings.stream()
+                .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+Using Collectors:
+-----------------
+      Map<String, Integer> stringCounts = strings.stream()
+        .collect(Collectors.toMap(
+                s -> s, // Key mapper
+                s -> 1, // Value mapper
+               (a,b)->a+b // Merge function to handle duplicate keys
+        ));
