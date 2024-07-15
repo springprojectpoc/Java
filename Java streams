@@ -50,3 +50,7 @@ String input = "abcabcd";
 6) max() method veersions
         Stream<Integer> str = Stream.of(1,2,3,4);
         System.out.println(str.max(Integer::compare).get());
+7) Sum of digits in number
+   int number = 123; //
+   System.out.println(String.valueOf(number).chars().mapToObj(ch -> (char)ch)
+            .map(Character::getNumericValue).reduce(0,(a,b)->a+b));
