@@ -15,3 +15,7 @@ Using Collectors:
                 s -> 1, // Value mapper
                (a,b)->a+b // Merge function to handle duplicate keys
         ));
+2) Reverse Words
+-----------------
+     String str="Sample list of strings";
+     System.out.println(Arrays.stream(str.split("\\W")).reduce("",(f1,f2)->f2+" "+f1));
