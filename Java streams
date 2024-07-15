@@ -39,3 +39,10 @@ String input = "abcabcd";
    Long voewlsCount = input.chars().mapToObj(ch->(char)ch).filter(ch->voewls.indexOf(ch)!=-1).count();
    Long consonentCount = input.chars().mapToObj(ch->(char)ch).filter(ch-> Character.isLetter(ch) && voewls.indexOf(ch)==-1).count();
 
+5) Combine streams : 
+    String[] array1 = {"Java", "is", "fun"};
+    String[] array2 = {"and", "powerful"};
+
+    Stream<String> s1= Stream.of(array1);
+    Stream<String> s2= Stream.of(array2);
+    System.out.println(Stream.concat(s1,s2).collect(Collectors.toList()));
