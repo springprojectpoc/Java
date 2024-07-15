@@ -46,3 +46,7 @@ String input = "abcabcd";
     Stream<String> s1= Stream.of(array1);
     Stream<String> s2= Stream.of(array2);
     System.out.println(Stream.concat(s1,s2).collect(Collectors.toList()));
+
+6) max() method veersions
+        Stream<Integer> str = Stream.of(1,2,3,4);
+        System.out.println(str.max(Integer::compare).get());
