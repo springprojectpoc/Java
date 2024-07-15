@@ -21,6 +21,7 @@ Using Collectors:
      String str="Sample list of strings";
      System.out.println(Arrays.stream(str.split("\\W")).reduce("",(f1,f2)->f2+" "+f1));
 3) Reverse chars 
+-----------------
     String toReverse = "EDCBA";
 
 //String.valueOf((char) c) -->char to String conversion is important because in reduce initial value is emplty string while concat it will cause compilation error 
@@ -29,3 +30,12 @@ Using Collectors:
                .mapToObj(c -> String.valueOf((char) c))
                .reduce("", (acc, c) -> c+acc);
        System.out.println(toReverse);
+
+4) Count voewls and consonent
+--------------------------------
+String input = "abcabcd";
+   List<Character> voewls= Arrays.asList('a','A','e','E','i','I','o','O','u','U');
+ 
+   Long voewlsCount = input.chars().mapToObj(ch->(char)ch).filter(ch->voewls.indexOf(ch)!=-1).count();
+   Long consonentCount = input.chars().mapToObj(ch->(char)ch).filter(ch-> Character.isLetter(ch) && voewls.indexOf(ch)==-1).count();
+
