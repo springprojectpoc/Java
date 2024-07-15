@@ -24,3 +24,7 @@ public class Overloaded {
 
 Output : foo(long) as sequence of matching int, long, Integer, int....
 
+2) Here this version of replace() methos replaces all occurence so output is ---- Jxvx
+String text = "Java";
+System.out.println(text.replace('a', 'x'));
+
