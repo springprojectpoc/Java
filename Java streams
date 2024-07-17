@@ -21,7 +21,20 @@ like LinkedHashMap::new
             .stream()
             .collect(Collectors.groupingBy(String::length,Collectors.toCollection(LinkedList::new)));
     System.out.println(collect);
-******************************************************************************************************************************
+*****************************************************************************************************************************
+    // Group by department and find the second highest salary in each department
+    Map<String, List<Employee>> secondHighestSalariesByDept = employees.stream()
+            .collect(Collectors.groupingBy(
+                    Employee::getDepartment,
+                    Collectors.collectingAndThen(
+                            Collectors.toList(),
+                            list -> list.stream()
+                                    .sorted(Comparator.comparingDouble(Employee::getSalary).reversed())
+                                    .limit(2).toList()
+                    )
+            ));
+
+*****************************************************************************************************************************
 
 Collectors.collectingAndThen :
 
