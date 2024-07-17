@@ -58,6 +58,25 @@ int averageSalary1 = employees.stream()
                 average -> (int) Math.round(average))); // Additional operation: rounding to the nearest integer
 
 System.out.println("Average Salary after roundup: " + averageSalary1);
+
++++++++++++++++++
+
+        //Print greater number than next
+        List<Integer> numbers=Arrays.asList(1, 2, 3, 4,0,1,2,3,4,5,1,2,3);
+
+        List<Integer> list1 = IntStream.range(0,numbers.size()-1)
+                .filter(index -> numbers.get(index)> numbers.get(index+1))
+                .mapToObj(numbers::get).collect(Collectors.toList());
+        System.out.println();
+
+        //Get min and max
+        List<Integer> integerList = Arrays.asList(12, 19, 38, 397, 16, 980, 37, 165, 587, 87, 987, 568);
+        Map<String, Integer> map = integerList.stream().collect(Collectors.teeing(
+                Collectors.maxBy(Integer::compareTo),// First collector: finding max
+                Collectors.minBy(Integer::compareTo),// second collector: finding min
+                (e1, e2) -> Map.of("max", e1.get(), "min", e2.get()) // combining results in a map
+        ));
+        System.out.println(map);
 ***************************************************************************************************************************************
 
 1) Java Program to Find the First Non-repeated Character in a String
