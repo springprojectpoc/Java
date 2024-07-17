@@ -1,6 +1,15 @@
 //Java streams
 Java Program to Find All the Permutations of a String //need ti prepare
 
+*** mapTo() methods third paramater for merging value in case of key parameter found duplicate else it wont called**
+ List<String> list = Arrays.asList("a", "a");
+ Map<String, Integer> map = list.stream()
+         .collect(Collectors.toMap(
+                 Function.identity(),
+                 String::length,
+                 (existingValue, replacementForExistingValueInCaseValueForKeyDuplicates) -> existing+replacement, LinkedHashMap::new));
+ System.out.println(map);
+
 1) Java Program to Find the First Non-repeated Character in a String
  Using groupingBy
 -----------------
