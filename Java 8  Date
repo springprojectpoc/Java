@@ -8,4 +8,15 @@
         LocalDate birthDate = LocalDate.of(1992, Month.AUGUST,1);
         DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("dd MMM yyyy",Locale.ENGLISH);
         System.out.println(dateTimeFormatter.format(birthDate));
-        
+
+ //UTC time
+        Instant utcDate=Instant.now();
+        System.out.println(utcDate);//2024-08-10T20:10:00.670Z
+
+        //ZonedLocalDateTime
+        ZonedDateTime zonedDateTime=ZonedDateTime.now();
+        System.out.println("Time now [Local] : "+ zonedDateTime);
+
+        //Local Time in New York
+        ZonedDateTime newZonedDateTime=ZonedDateTime.now(TimeZone.getTimeZone("America/New_York").toZoneId());
+        System.out.println("Time now [Local] : "+ newZonedDateTime);
