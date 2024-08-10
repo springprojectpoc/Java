@@ -1,0 +1,11 @@
+        float a=1.0f;
+        float b=0.9f;
+        float result= a-b;
+        System.out.println(result);//0.100000024 floating precision issue
+
+        BigDecimal aBigDecimal=BigDecimal.valueOf(1.0);
+        BigDecimal bBigDecimal=BigDecimal.valueOf(0.9);
+
+        BigDecimal resultBigDecimal= aBigDecimal.subtract(bBigDecimal);
+        System.out.println(resultBigDecimal);//0.1 floating precision issue solved using BigDecimal
+        System.out.println();
