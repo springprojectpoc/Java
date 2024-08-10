@@ -1,0 +1,11 @@
+        //First way
+        DateTimeFormatter dateTimeFormatter1 = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
+        LocalDate date = LocalDate.parse("02 Aug 1992",//This string is expected to be in format of  dd MMM yyyy
+                dateTimeFormatter1);
+        System.out.println(date);// Output will be like 1992-08-02
+
+        //Second Way
+        LocalDate birthDate = LocalDate.of(1992, Month.AUGUST,1);
+        DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("dd MMM yyyy",Locale.ENGLISH);
+        System.out.println(dateTimeFormatter.format(birthDate));
+        
